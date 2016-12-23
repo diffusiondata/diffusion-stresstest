@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<publishers>
+	<publisher name="Stress">
+		<topics>Stress</topics>
+		<class>com.pushtechnology.diffusion.demos.publishers.stress.StressPublisher</class>
+		<start>true</start>
+		<!-- Encoding options, 0=none, 1=Encrypted, 2=Compressed, 3=Base 64  -->
+		<property name="encoding-mode">0</property>
+		<!-- The size of the message to publish, 0 will represent some default data of 516 bytes (including header) -->
+		<property name="message-size">0</property>
+		<!-- Frequency in MS on how often to send the message, if this number is small 
+				don't forget to increase the number of background threads.
+				Setting this number to 0 will stop generated broadcasts, allowing for the 
+				event publisher to generate the messages  -->
+		<property name="frequency">50</property>
+	</publisher>
+	
+	<publisher name="Performance">
+		<topics>F1,F2</topics>
+		<class>com.pushtechnology.diffusion.demos.publishers.stress.PerformancePublisher</class>
+		<start>true</start>
+		<!-- This is the number of messages to send the client upon subscription  -->
+		<property name="messages">5000</property>
+	</publisher>
+</publishers>
