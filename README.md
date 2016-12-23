@@ -1,6 +1,11 @@
 # diffusion-stresstest
 Very Simple Stresstesting tool for Diffusion
 
+History
+=======
+
+The stress-test Publisher and client were included in earlier versions of the Diffusion. 
+
 Building
 ========
 
