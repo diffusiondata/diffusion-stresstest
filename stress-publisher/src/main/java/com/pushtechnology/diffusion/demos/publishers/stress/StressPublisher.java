@@ -33,7 +33,7 @@ import com.pushtechnology.diffusion.api.topic.Topic;
 
 /**
  * Send some real world data and send it frequently. This publisher is to be
- * used with the stress test tool
+ * used with stress-client
  *
  * @author Push Technology Limited
  */
