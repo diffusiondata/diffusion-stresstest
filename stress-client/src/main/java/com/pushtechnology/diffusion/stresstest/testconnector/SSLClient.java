@@ -63,7 +63,7 @@ public class SSLClient extends APIClient {
 
     @Override
     public void connect() throws DiffusionException {
-        ServerDetails serverDetails =
+        final ServerDetails serverDetails =
             ConnectionFactory.createServerDetails(
                 "dpts://" + getHost() + ":" + getPort());
 
@@ -72,7 +72,7 @@ public class SSLClient extends APIClient {
         // details.setSSLContext(getSSLContext());
         theClient = new ExternalClientConnection(this, serverDetails);
 
-        TopicSet topics = new TopicSet(StressTestProperties.getTopic());
+        final TopicSet topics = new TopicSet(StressTestProperties.getTopic());
         setClientID(theClient.connect(topics));
     }
 
@@ -82,7 +82,8 @@ public class SSLClient extends APIClient {
     }
 
     @SuppressWarnings("unused")
-    private SSLContext getSSLContext() throws GeneralSecurityException, APIException, IOException {
+    private SSLContext getSSLContext()
+        throws GeneralSecurityException, APIException, IOException {
 
         if (theSSLContext != null) {
             return theSSLContext;
@@ -93,10 +94,10 @@ public class SSLClient extends APIClient {
             }
 
             // Get the most preferred implementation
-            KeyStore ks = KeyStore.getInstance("JKS");
+            final KeyStore ks = KeyStore.getInstance("JKS");
 
             // This is the default password for the keystore
-            char[] password = "password".toCharArray();
+            final char[] password = "password".toCharArray();
 
             InputStream keyStream = null;
             try {
@@ -108,10 +109,10 @@ public class SSLClient extends APIClient {
             }
 
             theSSLContext = SSLContext.getInstance("TLS");
-            KeyManagerFactory kmf = JVMSupport.getKeyManagerFactory();
+            final KeyManagerFactory kmf = JVMSupport.getKeyManagerFactory();
             kmf.init(ks, password);
 
-            TrustManagerFactory tmf =
+            final TrustManagerFactory tmf =
                 TrustManagerFactory.getInstance(TrustManagerFactory
                     .getDefaultAlgorithm());
 

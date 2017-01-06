@@ -24,7 +24,7 @@ import com.pushtechnology.diffusion.stresstest.StressTest.CompletionCallback;
 import com.pushtechnology.diffusion.stresstest.StressTestProperties;
 
 /**
- * External Client
+ * External Client.
  *
  * @author Push Technology Limited
  */
@@ -52,12 +52,12 @@ public class NetClient extends APIClient {
      */
     @Override
     public void connect() throws DiffusionException {
-        ServerDetails details =
+        final ServerDetails details =
             ConnectionFactory.createServerDetails(
                 "dpt://" + getHost() + ":" + getPort());
         details.setInputBufferSize(65536);
         theClient = new ExternalClientConnection(this, details);
-        TopicSet topics = new TopicSet(StressTestProperties.getTopic());
+        final TopicSet topics = new TopicSet(StressTestProperties.getTopic());
         setClientID(theClient.connect(topics));
     }
 

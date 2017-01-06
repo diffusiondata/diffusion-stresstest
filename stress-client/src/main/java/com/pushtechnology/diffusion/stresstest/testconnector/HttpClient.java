@@ -29,7 +29,7 @@ import com.pushtechnology.diffusion.stresstest.StressTestProperties;
 public class HttpClient extends APIClient {
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param completionCallback
      *
@@ -50,7 +50,7 @@ public class HttpClient extends APIClient {
      */
     @Override
     public void connect() throws DiffusionException {
-        ServerDetails serverDetails =
+        final ServerDetails serverDetails =
             ConnectionFactory.createServerDetails(
                 "http://" + getHost() + ":" + getPort());
         // 64K Input buffer
@@ -58,7 +58,7 @@ public class HttpClient extends APIClient {
 
         theClient = new ExternalClientConnection(this, serverDetails);
 
-        TopicSet topics = new TopicSet(StressTestProperties.getTopic());
+        final TopicSet topics = new TopicSet(StressTestProperties.getTopic());
         setClientID(theClient.connect(topics));
     }
 

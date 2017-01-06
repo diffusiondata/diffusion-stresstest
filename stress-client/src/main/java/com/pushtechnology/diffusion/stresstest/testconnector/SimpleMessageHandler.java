@@ -17,19 +17,15 @@ package com.pushtechnology.diffusion.stresstest.testconnector;
 import com.pushtechnology.diffusion.api.message.TopicMessage;
 
 /**
- * Implements a basic message handler
+ * Implements a basic message handler.
+ *
  * @author Push Technology Limited
  */
 public class SimpleMessageHandler implements MessageHandler {
 
-
-	/**
-	 * @see com.pushtechnology.diffusion.stresstest.testconnector.MessageHandler#handleMessage(com.pushtechnology.diffusion.api.message.TopicMessage)
-	 */
-	@Override
+    @Override
     public void handleMessage(TopicMessage message) {
-		// System.out.println("Message:" + new String(message));
-	}
+        // System.out.println("Message:" + new String(message));
+    }
 
 }
-

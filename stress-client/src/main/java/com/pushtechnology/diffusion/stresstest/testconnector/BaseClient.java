@@ -132,7 +132,7 @@ public abstract class BaseClient {
     }
 
     /**
-     * setClientID
+     * setClientID.
      *
      * @param id
      */
@@ -150,14 +150,14 @@ public abstract class BaseClient {
     }
 
     /**
-     * Connect
+     * Connect.
      *
      * @throws DiffusionException
      */
     public abstract void connect() throws DiffusionException;
 
     /**
-     * Send Subscribe
+     * Send Subscribe.
      *
      * @param topics
      * @throws DiffusionException
@@ -166,7 +166,7 @@ public abstract class BaseClient {
         throws DiffusionException;
 
     /**
-     * Send Unsubscribe
+     * Send Unsubscribe.
      *
      * @param topics
      * @throws DiffusionException
@@ -175,7 +175,7 @@ public abstract class BaseClient {
         throws DiffusionException;
 
     /**
-     * Close
+     * Close.
      *
      * @throws DiffusionException
      */

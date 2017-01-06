@@ -13,9 +13,6 @@
 * limitations under the License.
  *******************************************************************************/
 
-/**
- * Created on 13 May 2009 by dhudson
- */
 package com.pushtechnology.diffusion.stresstest.testconnector;
 
 import com.pushtechnology.diffusion.DiffusionException;
@@ -71,7 +68,7 @@ public abstract class APIClient extends BaseClient
             new ExternalClientConnection(
                 this,
                 "dpt://" + getHost() + ":" + getPort());
-        TopicSet topics = new TopicSet(StressTestProperties.getTopic());
+        final TopicSet topics = new TopicSet(StressTestProperties.getTopic());
         setClientID(theClient.connect(topics));
     }
 
@@ -93,7 +90,7 @@ public abstract class APIClient extends BaseClient
     @Override
     public void send(String data, String topic) throws DiffusionException {
         if (theClient != null) {
-            TopicMessage message = theClient.createDeltaMessage(topic);
+            final TopicMessage message = theClient.createDeltaMessage(topic);
             message.put(data);
             theClient.send(message);
         }

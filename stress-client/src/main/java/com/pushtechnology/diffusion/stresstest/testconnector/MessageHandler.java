@@ -22,11 +22,12 @@ import com.pushtechnology.diffusion.api.message.TopicMessage;
  */
 public interface MessageHandler {
 
-	/**
-	 * This method is called when a message is received from the Diffusion
-	 * Server
-	 * @param message
-	 */
-	public void handleMessage(TopicMessage message);
+    /**
+     * This method is called when a message is received from the Diffusion
+     * Server.
+     *
+     * @param message
+     */
+    void handleMessage(TopicMessage message);
 
 }

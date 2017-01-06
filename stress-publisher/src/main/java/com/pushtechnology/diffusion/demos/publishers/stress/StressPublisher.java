@@ -1,3 +1,17 @@
+/*******************************************************************************
+ * Copyright (C) 2016, 2017 Push Technology Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+* limitations under the License.
+ *******************************************************************************/
 package com.pushtechnology.diffusion.demos.publishers.stress;
 
 import java.util.concurrent.ScheduledFuture;
@@ -20,20 +34,21 @@ import com.pushtechnology.diffusion.api.topic.Topic;
 /**
  * Send some real world data and send it frequently. This publisher is to be
  * used with the stress test tool
+ *
  * @author Push Technology Limited
  */
-@SuppressWarnings("deprecation")
 public final class StressPublisher extends Publisher implements RunnableTask {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StressPublisher.class);
+    private static final Logger LOG =
+        LoggerFactory.getLogger(StressPublisher.class);
 
     private static final String DEFAULT_SAMPLE_DATA =
         "1009|0 Mins|8|102:17978|null[9.6,540,1069[9.8,98,1069[10,684,1069[10.2,58,1069[11,2,1069|11,1245,1070" +
-        "[11.2,45,1070[11.4,70,1070[11.6,54,1070[11.8,168,1070[12,45,1070|null[1.1,3256,1071[1.18,300,1071" +
-        "[1.2,2995,1071[1.25,158,1071[1.3,254,1071|null[1.3,700,1072[1.34,41,1072[1.35,836,1072[1.4,22,1072" +
-        "[1.8,2472,1072|null[5.2,12,1073[5.3,650,1073[5.4,784,1073[5.5,65,1073[5.8,462,1073|null[6.1,100,1074" +
-        "[6.2,600,1074[6.3,14,1074[6.4,680,1074[6.5,500,1074|null[30,10,1075[34,30,1075[36,11,1075[40,5,1075" +
-        "[46,12,1075";
+            "[11.2,45,1070[11.4,70,1070[11.6,54,1070[11.8,168,1070[12,45,1070|null[1.1,3256,1071[1.18,300,1071" +
+            "[1.2,2995,1071[1.25,158,1071[1.3,254,1071|null[1.3,700,1072[1.34,41,1072[1.35,836,1072[1.4,22,1072" +
+            "[1.8,2472,1072|null[5.2,12,1073[5.3,650,1073[5.4,784,1073[5.5,65,1073[5.8,462,1073|null[6.1,100,1074" +
+            "[6.2,600,1074[6.3,14,1074[6.4,680,1074[6.5,500,1074|null[30,10,1075[34,30,1075[36,11,1075[40,5,1075" +
+            "[46,12,1075";
 
     private static final String TOPIC = "Stress";
 
@@ -97,7 +112,8 @@ public final class StressPublisher extends Publisher implements RunnableTask {
         }
         catch (APIException ignore) {
             LOG.info(
-                "Stress Test.  Using default message size {}", DEFAULT_SAMPLE_DATA.length());
+                "Stress Test.  Using default message size {}",
+                DEFAULT_SAMPLE_DATA.length());
             theMessage = DEFAULT_SAMPLE_DATA;
         }
 
@@ -117,7 +133,8 @@ public final class StressPublisher extends Publisher implements RunnableTask {
 
     @Override
     protected void publisherStarted() throws APIException {
-        LOG.info("Stress Test started.  Message Size {} bytes every {} ms", theMessage.length() , theFrequency);
+        LOG.info("Stress Test started.  Message Size {} bytes every {} ms",
+            theMessage.length(), theFrequency);
 
         if (theFrequency != 0) {
             theFuture =

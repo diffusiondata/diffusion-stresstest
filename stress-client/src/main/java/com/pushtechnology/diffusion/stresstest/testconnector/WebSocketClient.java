@@ -12,12 +12,6 @@
  * See the License for the specific language governing permissions and
 * limitations under the License.
  *******************************************************************************/
-
-/*
- * @author dhudson -
- * Created 7 Jan 2011 : 13:58:15
- */
-
 package com.pushtechnology.diffusion.stresstest.testconnector;
 
 import com.pushtechnology.diffusion.DiffusionException;
@@ -35,7 +29,7 @@ import com.pushtechnology.diffusion.stresstest.StressTestProperties;
 public class WebSocketClient extends APIClient {
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param completionCallback
      * @param host
@@ -60,7 +54,7 @@ public class WebSocketClient extends APIClient {
 
         theClient = new ExternalClientConnection(this, serverDetails);
 
-        TopicSet topics = new TopicSet(StressTestProperties.getTopic());
+        final TopicSet topics = new TopicSet(StressTestProperties.getTopic());
         setClientID(theClient.connect(topics));
     }
 
