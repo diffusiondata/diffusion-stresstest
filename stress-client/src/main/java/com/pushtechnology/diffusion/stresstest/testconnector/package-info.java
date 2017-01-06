@@ -14,6 +14,7 @@
  *******************************************************************************/
 
 /**
- * Package containing the Stress and Performance publishers for the demo.
+ * Differing means of communicating with StressPublisher: ws, http, dpt, etc.
+ * @author Push Technology Limited
  */
-package com.pushtechnology.diffusion.demos.publishers.stress;
+package com.pushtechnology.diffusion.stresstest.testconnector;

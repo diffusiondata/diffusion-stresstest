@@ -14,6 +14,6 @@
  *******************************************************************************/
 
 /**
- * Package containing the Stress and Performance publishers for the demo.
+ * Package containing the client for the Stress demo.
  */
-package com.pushtechnology.diffusion.demos.publishers.stress;
+package com.pushtechnology.diffusion.stresstest;

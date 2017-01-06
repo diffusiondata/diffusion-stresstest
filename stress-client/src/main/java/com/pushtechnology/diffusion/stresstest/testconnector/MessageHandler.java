@@ -13,7 +13,20 @@
 * limitations under the License.
  *******************************************************************************/
 
+package com.pushtechnology.diffusion.stresstest.testconnector;
+
+import com.pushtechnology.diffusion.api.message.TopicMessage;
+
 /**
- * Package containing the Stress and Performance publishers for the demo.
+ * @author Push Technology Limited
  */
-package com.pushtechnology.diffusion.demos.publishers.stress;
+public interface MessageHandler {
+
+	/**
+	 * This method is called when a message is received from the Diffusion
+	 * Server
+	 * @param message
+	 */
+	public void handleMessage(TopicMessage message);
+
+}

@@ -6,6 +6,8 @@ History
 
 The `stresstest` Publisher and client were included in earlier versions of the Diffusion. 
 
+Depends on the classic client API. Will run on Diffusion v5.9 and earlier.
+
 Building
 ========
 

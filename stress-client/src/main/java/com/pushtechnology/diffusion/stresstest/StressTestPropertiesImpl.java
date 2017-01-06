@@ -12,8 +12,32 @@
  * See the License for the specific language governing permissions and
 * limitations under the License.
  *******************************************************************************/
+package com.pushtechnology.diffusion.stresstest;
+
+import com.pushtechnology.diffusion.properties.BaseProperties;
 
 /**
- * Package containing the Stress and Performance publishers for the demo.
+ * {@link StressTestProperties} singleton.
+ *
+ * @author Push Technology Limited
  */
-package com.pushtechnology.diffusion.demos.publishers.stress;
+final class StressTestPropertiesImpl extends BaseProperties {
+
+    private static final String PROPERTIES_NAME = "stresstest";
+
+    /**
+     * Constructor.
+     */
+    StressTestPropertiesImpl() {
+        super(false);
+    }
+
+    /**
+     * @see BaseProperties#getPropertiesName()
+     */
+    @Override
+    public String getPropertiesName() {
+        return PROPERTIES_NAME;
+    }
+
+}

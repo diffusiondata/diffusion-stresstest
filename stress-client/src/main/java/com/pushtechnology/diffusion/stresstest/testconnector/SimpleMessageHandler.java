@@ -12,8 +12,24 @@
  * See the License for the specific language governing permissions and
 * limitations under the License.
  *******************************************************************************/
+package com.pushtechnology.diffusion.stresstest.testconnector;
+
+import com.pushtechnology.diffusion.api.message.TopicMessage;
 
 /**
- * Package containing the Stress and Performance publishers for the demo.
+ * Implements a basic message handler
+ * @author Push Technology Limited
  */
-package com.pushtechnology.diffusion.demos.publishers.stress;
+public class SimpleMessageHandler implements MessageHandler {
+
+
+	/**
+	 * @see com.pushtechnology.diffusion.stresstest.testconnector.MessageHandler#handleMessage(com.pushtechnology.diffusion.api.message.TopicMessage)
+	 */
+	@Override
+    public void handleMessage(TopicMessage message) {
+		// System.out.println("Message:" + new String(message));
+	}
+
+}
+

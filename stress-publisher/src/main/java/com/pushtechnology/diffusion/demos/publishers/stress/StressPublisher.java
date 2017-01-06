@@ -20,7 +20,7 @@ import com.pushtechnology.diffusion.api.topic.Topic;
 /**
  * Send some real world data and send it frequently. This publisher is to be
  * used with the stress test tool
- * @author pwalsh
+ * @author Push Technology Limited
  */
 @SuppressWarnings("deprecation")
 public final class StressPublisher extends Publisher implements RunnableTask {
