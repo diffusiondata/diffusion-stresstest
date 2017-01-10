@@ -15,12 +15,12 @@
 package com.pushtechnology.diffusion.stresstest;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 import java.util.concurrent.CountDownLatch;
 
 import com.pushtechnology.diffusion.DiffusionException;
 import com.pushtechnology.diffusion.stresstest.testconnector.BaseClient;
-import com.pushtechnology.diffusion.stresstest.testconnector.HttpClient;
 import com.pushtechnology.diffusion.stresstest.testconnector.MessageHandler;
 import com.pushtechnology.diffusion.stresstest.testconnector.NetClient;
 import com.pushtechnology.diffusion.stresstest.testconnector.SSLClient;
@@ -33,7 +33,6 @@ import com.pushtechnology.diffusion.stresstest.testconnector.WebSocketClient;
  */
 public final class StressTest {
 
-    private static final String TRANSPORT_HTTP = "http";
     private static final String TRANSPORT_NET = "client";
     private static final String TRANSPORT_SSL = "ssl";
     private static final String TRANSPORT_WS = "ws";
@@ -57,6 +56,8 @@ public final class StressTest {
     private Class<?> theMessageHandlerClass = null;
 
     private List<BaseClient> theClients = null;
+
+    private final Random random = new Random();
 
     private final CompletionCallback completionCallback =
         new CompletionCallback() {
@@ -194,22 +195,16 @@ public final class StressTest {
     private BaseClient createClient(int clientNumber) throws DiffusionException {
 
         if (theTransportType.equalsIgnoreCase(TRANSPORT_MIXED)) {
-            final double randomNumber = Math.random();
-            if (randomNumber < 0.25) {
-                return createHttpClient(clientNumber);
-            }
-            else if (randomNumber > 0.25 && randomNumber < 0.50) {
+            final int randomNumber = random.nextInt() % 3;
+
+            switch(randomNumber) {
+            case 0:
                 return createNetClient(clientNumber);
-            }
-            else if (randomNumber >= 0.50 && randomNumber < 0.75) {
+            case 1:
                 return createWSClient(clientNumber);
-            }
-            else {
+            case 2:
                 return createSSLClient(clientNumber);
             }
-        }
-        else if (theTransportType.equalsIgnoreCase(TRANSPORT_HTTP)) {
-            return createHttpClient(clientNumber);
         }
         else if (theTransportType.equalsIgnoreCase(TRANSPORT_NET)) {
             return createNetClient(clientNumber);
@@ -223,16 +218,6 @@ public final class StressTest {
 
         throw new IllegalArgumentException(
             "A valid transport type was not submitted");
-    }
-
-    private HttpClient createHttpClient(int clientNumber)
-        throws DiffusionException {
-        return new HttpClient(
-            completionCallback,
-            theHost,
-            theHttpPort,
-            clientNumber,
-            theNumberOfMessages);
     }
 
     private NetClient createNetClient(int clientNumber)
